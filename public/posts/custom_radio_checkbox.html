@@ -1,0 +1,102 @@
+<p>
+  The web has come a long way in the past ten years, except forms. Forms are like gas station bathrooms. Sure, it's fun to run in and grab the latest energy drink or snack, but you still have to piss on your way out. There's no choice but to use that rancid, sticky, 20 year old pot to flush your shit to the server...er, waste management facility.
+</p>
+<p>
+  CSS, unlike forms, is awesome. By summoning the mighty power of css selectors, we can move checkboxes and radio buttons out of the 90s.
+</p>
+<pre>
+  <code>
+  &lt;form id=&quot;styled&quot;&gt; 
+    &lt;input type=&quot;radio&quot; name=&quot;emotion&quot; id=&quot;happy&quot; /&gt;
+    &lt;label for=&quot;happy&quot;&gt;
+      &lt;img alt=&quot;happy&quot; src=&quot;http://i.imgur.com/zm8fp.png&quot; /&gt;
+      &lt;p&gt;happy&lt;/p&gt;
+    &lt;/label&gt;
+
+    &lt;input type=&quot;radio&quot; name=&quot;emotion&quot; id=&quot;sad&quot; /&gt;
+    &lt;label for=&quot;sad&quot;&gt;
+      &lt;img alt=&quot;sad&quot; src=&quot;http://i.imgur.com/sKhy9.png&quot; /&gt;
+      &lt;p&gt;sad&lt;/p&gt;
+    &lt;/label&gt;
+  &lt;/form&gt;
+  </code>
+</pre>
+
+<p>Which looks like:</p>
+<form id="unstyled">
+  <h3>How are you feeling today?</h3>
+  <input type="radio" name="emotion" id="happy" />
+  <label for="happy">
+    <img alt="happy" src="http://i.imgur.com/zm8fp.png" />
+    <p>Happy</p>
+  </label>
+
+  <input type="radio" name="emotion" id="sad" />
+  <label for="sad">
+    <img alt="sad" src="http://i.imgur.com/sKhy9.png" />
+    <p>Sad</p>
+  </label>
+</form>
+
+<p>Cool, so that's the markup. Pretty basic, just wrapping the label around the image to get the hit area.</p>
+
+<p>When I first wanted to sexy-up some form components, I planned to just jquery-whiz-bangify-modularize a pluginable formifier. But some well-placed CSS selectors do all the work for us. Incoming magic:</p>
+<pre>
+  <code>
+  &lt;style&gt;
+    #styled input {
+      display: none;
+    }
+    #styled label {
+      display: inline-block;
+    }
+    #styled label p{
+      text-align: center;
+    }
+    #styled input + label > img{
+      border: 10px transparent solid;
+    }
+    #styled input:checked + label > img{
+      border: 10px #58fe77 solid;
+      -webkit-border-radius: 30px;
+      -moz-border-radius: 30px;
+      border-radius: 30px;
+    }
+  &lt;/style&gt;
+  </code>
+</pre>
+
+<p>Which becomes:</p>
+
+<style>
+#styled input                       { display: none; }
+#styled label                       { display: inline-block; }
+#styled label p                     { text-align: center; }
+#styled input + label > img         { border: 10px transparent solid; }
+#styled input:checked + label > img {
+  border: 10px #58fe77 solid;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+}
+</style>
+
+<form id="styled">
+  <h3>How are you feeling today?</h3>
+  <input type="radio" name="styled_emotion" id="styled_happy" />
+  <label for="styled_happy">
+    <img alt="happy" src="http://i.imgur.com/zm8fp.png" />
+    <p>Happy</p>
+  </label>
+
+  <input type="radio" name="styled_emotion" id="styled_sad" />
+  <label for="styled_sad">
+    <img alt="sad" src="http://i.imgur.com/sKhy9.png" />
+    <p>Sad</p>
+  </label>
+</form>
+
+<p>So that's just a radio button, but that style markup will work for checkboxes too, so long as your input ids are matching the label "for" attributes. Watch for those unique id's! I think chrome and firefox just match the first element id found, but IE7 will actually tell you to piss off. Which is frankly, easier to debug. That's right, I said it, IE7 is easier to debug!</p>
+
+<p>In only this circumstance. Arguably.</p>
+

@@ -1,0 +1,8 @@
+img(src='/images/me.gif')
+h1.title= title
+div.post_list
+  each f in files
+    div.blog_link
+      a(href="blog/#{f.link}") #{f.name}
+
+div.post_body = 
