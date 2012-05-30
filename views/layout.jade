@@ -3,5 +3,10 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
-    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Imprima')
+    link(rel='stylesheet', href='/stylesheets/prettify.css')
+    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Signika+Negative:300')
+    script(src='/javascripts/google-code-prettify/prettify.js')
+    script(type='text/javascript')
+      window.onload = function(){ prettyPrint(); }
+
   body!= body

@@ -4,8 +4,7 @@
 <p>
   CSS, unlike forms, is awesome. By summoning the mighty power of css selectors, we can move checkboxes and radio buttons out of the 90s.
 </p>
-<pre>
-  <code>
+<pre class="prettyprint">
   &lt;form id=&quot;styled&quot;&gt; 
     &lt;input type=&quot;radio&quot; name=&quot;emotion&quot; id=&quot;happy&quot; /&gt;
     &lt;label for=&quot;happy&quot;&gt;
@@ -19,7 +18,6 @@
       &lt;p&gt;sad&lt;/p&gt;
     &lt;/label&gt;
   &lt;/form&gt;
-  </code>
 </pre>
 
 <p>Which looks like:</p>
@@ -41,8 +39,7 @@
 <p>Cool, so that's the markup. Pretty basic, just wrapping the label around the image to get the hit area.</p>
 
 <p>When I first wanted to sexy-up some form components, I planned to just jquery-whiz-bangify-modularize a pluginable formifier. But some well-placed CSS selectors do all the work for us. Incoming magic:</p>
-<pre>
-  <code>
+<pre class="prettyprint">
   &lt;style&gt;
     #styled input {
       display: none;
@@ -63,7 +60,6 @@
       border-radius: 30px;
     }
   &lt;/style&gt;
-  </code>
 </pre>
 
 <p>Which becomes:</p>

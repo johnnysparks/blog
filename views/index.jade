@@ -3,6 +3,6 @@ h1.title= title
 div.post_list
   each f in files
     div.blog_link
-      a(href="blog/#{f.link}") #{f.name}
+      a(href="/blog/#{f.link}") #{f.name}
 
-div.post_body = 
+div.post_body !{main}
